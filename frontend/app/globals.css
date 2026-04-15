@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
+@import "@fontsource/sora/400.css";
+@import "@fontsource/sora/500.css";
+@import "@fontsource/sora/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Belon Design Tokens ─────────────────────────────────────────── */
+:root {
+  --belon-orange: #f97316;
+  --belon-orange-dim: rgba(249, 115, 22, 0.15);
+  --belon-black: #080808;
+  --belon-surface: #0d0e1a;
+  --belon-surface-2: rgba(255, 255, 255, 0.05);
+  --belon-border: rgba(255, 255, 255, 0.1);
+  --belon-text-muted: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Base ────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #080808;
+  color: #ffffff;
+  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scroll ──────────────────────────────────────────────────────── */
+.belon-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+.belon-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.belon-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.belon-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ── Animations ──────────────────────────────────────────────────── */
+@keyframes belon-enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes belon-enter-x {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes belon-enter-x-fast {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.belon-enter-up {
+  animation: belon-enter-up 0.35s ease-out both;
+}
+.belon-enter-x {
+  animation: belon-enter-x 0.35s ease-out both;
+}
+.belon-enter-x-fast {
+  animation: belon-enter-x-fast 0.18s ease-out both;
+}
+
+/* ── React Flow overrides ────────────────────────────────────────── */
+.react-flow__renderer {
+  background: #08090f !important;
+}
+.react-flow__edge-path {
+  stroke: rgba(99, 102, 241, 0.45) !important;
+}
+.react-flow__controls {
+  background: rgba(13, 14, 26, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.react-flow__controls-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── Orange accent glow ──────────────────────────────────────────── */
+.belon-glow-orange {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+/* ── Status badge pulse ──────────────────────────────────────────── */
+.belon-pulse-critical {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Live indicator ──────────────────────────────────────────────── */
+@keyframes live-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.belon-live-dot {
+  animation: live-dot 1.5s ease-in-out infinite;
+}
