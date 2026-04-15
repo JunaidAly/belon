@@ -163,5 +163,5 @@ export const integrationsApi = {
   hubspotSync: (entity_types?: string[]) =>
     request("POST", "/integrations/hubspot/sync", { entity_types: entity_types || ["contacts", "deals"] }),
   disconnect: (provider: string) => request("DELETE", `/integrations/${provider}`),
-  status: (provider: string) => request("GET", `/integrations/${provider}/status`),
+  status: (provider: string) => request<Partial<Integration>>("GET", `/integrations/${provider}/status`),
 };
